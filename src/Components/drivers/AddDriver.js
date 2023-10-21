@@ -3,36 +3,101 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 
 export default function AddDriver() {
+    let navigate =useNavigate()
+
+    const [driver, setDriver]=userState ({
+        first_Name: "",
+        last_Name: "",
+        driver_License_Number: "",
+        vehicle_Information: "",
+        phone_Number:"",
+        email:""
+    })
+
+    const {first_Name, last_Name, driver_License_Number, vehicle_Information, phone_Number, email}= driver
+
+    const onInputChange=(e) => {
+        setDriver(...driver, {[e.target.first_Name]:e.target.value})
+    }
+    const onSubmit =async (e) => {
+        e.preventDefault();
+        await axios.post("http://localhost:8080/driver", driver)
+        navigate("/")
+    }
+
     return (
         <div className="container">
             <div className="row">
                 <div className="col md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    <h2 className="text-center m-4">Register User</h2>
-                    {/*Name*/}
+                    <h2 className="text-center m-4">Register Driver</h2>
+                    <form onSubmit={(e)=> onSubmit(e)}>
+                    {/*First_Name*/}
                     <div className="mb-3">
-                        <label htmlFor="Name" className="form-label">
-                            Name
+                        <label htmlFor="FirstName" className="form-label">
+                            First Name
                         </label>
                         <input
                             type={"text"}
                             className="form-control"
-                            placeholder="Enter your name"
-                            name={userName}
-                            value={userName}
+                            placeholder="Enter your First Name"
+                            name={first_Name}
+                            value={first_Name}
                             onChange={(e)=>onInputChange(e)}
                         />
                     </div>
-                    {/*Address*/}
+                    {/*Last_Name*/}
                     <div className="mb-3">
-                        <label htmlFor="Name" className="form-label">
-                            Address
+                        <label htmlFor="LastName" className="form-label">
+                            Last Name
                         </label>
                         <input
                             type={"text"}
                             className="form-control"
-                            placeholder="Enter your address"
-                            name={userAddress}
-                            value={userAddress}
+                            placeholder="Enter your Last Name"
+                            name={last_Name}
+                            value={last_Name}
+                            onChange={(e)=>onInputChange(e)}
+                        />
+                    </div>
+                    {/*driver_License_Number*/}
+                    <div className="mb-3">
+                        <label htmlFor="DriverLicenseNumber" className="form-label">
+                            Driver License Number
+                        </label>
+                        <input
+                            type={"text"}
+                            className="form-control"
+                            placeholder="Enter your Driver License Number"
+                            name={driver_License_Number}
+                            value={driver_License_Number}
+                            onChange={(e)=>onInputChange(e)}
+                        />
+                    </div>
+                    {/*Vehicle_Information*/}
+                    <div className="mb-3">
+                        <label htmlFor="VehicleInformation" className="form-label">
+                            Vehicle Information
+                        </label>
+                        <input
+                            type={"text"}
+                            className="form-control"
+                            placeholder="Enter your Vehicle Information"
+                            name={vehicle_Information}
+                            value={vehicle_Information}
+                            onChange={(e)=>onInputChange(e)}
+                        />
+                    </div>
+                    {/*Phone*/}
+                    <div className="mb-3">
+                        <label htmlFor="PhoneNumber" className="form-label">
+                            Phone Number
+                        </label>
+                        <input
+                            type={"text"}
+                            className="form-control"
+                            placeholder="Enter your Phone Number"
+                            name={phone_Number}
+                            value={phone_Number}
                             onChange={(e)=>onInputChange(e)}
                         />
                     </div>
@@ -44,23 +109,9 @@ export default function AddDriver() {
                         <input
                             type={"text"}
                             className="form-control"
-                            placeholder="Enter your email"
-                            name={userEmail}
-                            value={userEmail}
-                            onChange={(e)=>onInputChange(e)}
-                        />
-                    </div>
-                    {/*Phone*/}
-                    <div className="mb-3">
-                        <label htmlFor="Name" className="form-label">
-                            Phone
-                        </label>
-                        <input
-                            type={"text"}
-                            className="form-control"
-                            placeholder="Enter your phone"
-                            name={userPhone}
-                            value={userPhone}
+                            placeholder="Enter your Email"
+                            name={email}
+                            value={email}
                             onChange={(e)=>onInputChange(e)}
                         />
                     </div>
@@ -71,6 +122,7 @@ export default function AddDriver() {
                     <Link type="submit" className="btn btn-outline-danger mx-2" to="/">
                         Cancel
                     </Link>
+                    </form>
                 </div>
             </div>
         </div>
