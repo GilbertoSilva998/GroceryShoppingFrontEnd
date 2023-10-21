@@ -5,6 +5,7 @@ import Navbar from "./Components/NavBar/Navbar";
 import img from './Assets/Images/homepage.jpg'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddUser from "./Components/users/AddUser";
+import AddDriver from "./Components/drivers/AddDriver";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Navbar/>
         <Routes>
             <Route exact path="/adduser" element={<AddUser />}/>
+            <Route exact path="/addDriver" element={<AddDriver />}/>
         </Routes>
         </Router>
         <div className="App">

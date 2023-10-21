@@ -1,11 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function AddDriver() {
     let navigate =useNavigate()
 
-    const [driver, setDriver]=userState ({
+    const [driver, setDriver]=useState ({
         first_Name: "",
         last_Name: "",
         driver_License_Number: "",
