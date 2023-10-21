@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./Components/NavBar/Navbar";
-import img from './Assets/Images/homepage.jpg'
+import Navbar from "./Components/navbar/Navbar";
+//import img from './Assets/Images/homepage.jpg'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddUser from "./Components/users/AddUser";
 
@@ -25,7 +25,7 @@ function App() {
         </Router>
         <div className="App">
             <header className="App-header">
-                <img src="homepage.jpg" alt="Grocery Shopping" width="400" height="300" />
+                <img src="" alt="Grocery Shopping" width="400" height="300" />
                 <h1>Welcome to our Grocery Shopping System</h1>
             </header>
         </div>
