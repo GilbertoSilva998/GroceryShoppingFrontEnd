@@ -38,6 +38,8 @@ export default function Navbar() {
                     <Link className="btn btn-outline-light" to="/users">User</Link>
                     <Link className="btn btn-outline-light" to="/categories">Category</Link>
                     <Link className="btn btn-outline-light" to="/products">Product</Link>
+                    <Link className="btn btn-outline-light" to="/drivers">Driver</Link>
+                    <Link className="btn btn-outline-light" to="/transactions">Transaction</Link>
                 </div>
             </div>
         </nav>
