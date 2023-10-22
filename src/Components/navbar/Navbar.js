@@ -5,9 +5,9 @@ export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="container">
-                <Link className="navbar-brand" to="/users">
+                <Link className="navbar-brand" to="/">
                     <img
-                        src="/"
+                        src=""
                         width="30"
                         height="30"
                         className="d-inline-block align-top mr-1"
@@ -25,14 +25,14 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link" href="/login">
+                            <Link className="btn btn-outline-light" to="/login">
                                 Login
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/register">
+                            <Link className="btn btn-outline-light" to="/register">
                                 Register
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     <Link className="btn btn-outline-light" to="/users">User</Link>
@@ -40,6 +40,8 @@ export default function Navbar() {
                     <Link className="btn btn-outline-light" to="/products">Product</Link>
                     <Link className="btn btn-outline-light" to="/drivers">Driver</Link>
                     <Link className="btn btn-outline-light" to="/transactions">Transaction</Link>
+                    <Link className="btn btn-outline-light" to="/customers">Customer</Link>
+                    <Link className="btn btn-outline-light" to="/stores">Store</Link>
                 </div>
             </div>
         </nav>

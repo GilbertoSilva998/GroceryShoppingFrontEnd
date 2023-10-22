@@ -45,6 +45,7 @@ export default function AddProduct() {
                                 name={productNumber}
                                 value={productNumber}
                                 onChange={(e)=>onInputChange(e)}
+                                required
                             />
                         </div>
                         {/*ProductType*/}
@@ -59,6 +60,7 @@ export default function AddProduct() {
                                 name={productType}
                                 value={productType}
                                 onChange={(e)=>onInputChange(e)}
+                                required
                             />
                         </div>
                         {/*ProductItem*/}
@@ -73,6 +75,7 @@ export default function AddProduct() {
                                 name={productType}
                                 value={productItem}
                                 onChange={(e)=>onInputChange(e)}
+                                required
                             />
                         </div>
                         {/*ProductDescription*/}
@@ -87,6 +90,7 @@ export default function AddProduct() {
                                 name={productDescription}
                                 value={productDescription}
                                 onChange={(e)=>onInputChange(e)}
+                                required
                             />
                         </div>
                         {/*Button*/}
