@@ -1,91 +1,91 @@
- import React, {useState} from 'react'
+import React, {useState} from 'react'
 import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
 
-export default function AddUser() {
+export default function AddProduct() {
 
     let navigate=useNavigate();
 
-    const [user,setUser] =useState({
-       userName:"",
-       userAddress:"",
-       userEmail: "",
-       userPhone:""
+    const [product,setProduct] =useState({
+        productNumber:"",
+        productType:"",
+        productItem: "",
+        productDescription:""
 
-   });
+    });
 
-    const{userName, userAddress, userEmail, userPhone}=user;
+    const{productNumber, productType, productItem, productDescription}=product;
 
     const onInputChange= (e)=> {
-        setUser({...user, [e.target.name]: e.target.value});
+        setProduct({...product, [e.target.name]: e.target.value});
     };
 
     const onSubmit =async (e) =>{
         e.preventDefault();
-        await axios.post("http://localhost:8080/user", user);
-        navigate("/users");
+        await axios.post("http://localhost:8080/product", product);
+        navigate("/products");
     };
 
     return (
         <div className="container">
             <div className="row">
                 <div className="col md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    <h2 className="text-center m-4">Register User</h2>
+                    <h2 className="text-center m-4">Add Product</h2>
 
                     <form onSubmit={(e) => onSubmit(e)}>
-                        {/*Name*/}
+                        {/*ProductNumber*/}
                         <div className="mb-3">
-                            <label htmlFor="Name" className="form-label">
-                                Name
+                            <label htmlFor="ProductNumber" className="form-label">
+                                Product Number
                             </label>
                             <input
-                                type={"text"}
+                                type={"number"}
                                 className="form-control"
-                                placeholder="Enter your name"
-                                name={userName}
-                                value={userName}
+                                placeholder="Enter product number"
+                                name={productNumber}
+                                value={productNumber}
                                 onChange={(e)=>onInputChange(e)}
                             />
                         </div>
-                        {/*Address*/}
+                        {/*ProductType*/}
                         <div className="mb-3">
-                            <label htmlFor="Name" className="form-label">
-                                Address
+                            <label htmlFor="ProductType" className="form-label">
+                                Product Type
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your address"
-                                name={userAddress}
-                                value={userAddress}
+                                placeholder="Enter product type"
+                                name={productType}
+                                value={productType}
                                 onChange={(e)=>onInputChange(e)}
                             />
                         </div>
-                        {/*Email*/}
+                        {/*ProductItem*/}
                         <div className="mb-3">
-                            <label htmlFor="Name" className="form-label">
-                                Email
+                            <label htmlFor="ProductItem" className="form-label">
+                                Product Item
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your email"
-                                name={userEmail}
-                                value={userEmail}
+                                placeholder="Enter product item"
+                                name={productType}
+                                value={productItem}
                                 onChange={(e)=>onInputChange(e)}
                             />
                         </div>
-                        {/*Phone*/}
+                        {/*ProductDescription*/}
                         <div className="mb-3">
-                            <label htmlFor="Name" className="form-label">
-                                Phone
+                            <label htmlFor="ProductDescription" className="form-label">
+                                Product Description
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your phone"
-                                name={userPhone}
-                                value={userPhone}
+                                placeholder="Enter product description"
+                                name={productDescription}
+                                value={productDescription}
                                 onChange={(e)=>onInputChange(e)}
                             />
                         </div>
@@ -93,7 +93,7 @@ export default function AddUser() {
                         <button type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/users">
+                        <Link className="btn btn-outline-danger mx-2" to="/products">
                             Cancel
                         </Link>
                     </form>
@@ -102,5 +102,4 @@ export default function AddUser() {
             </div>
         </div>
     )
-
 }
