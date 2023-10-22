@@ -30,6 +30,7 @@ export default function AddDriver() {
             <div className="row">
                 <div className="col md-6 offset-md-3 border rounded p-4 mt-2 shadow">
                     <h2 className="text-center m-4">Register Driver</h2>
+
                     <form onSubmit={(e)=> onSubmit(e)}>
                     {/*First_Name*/}
                     <div className="mb-3">
