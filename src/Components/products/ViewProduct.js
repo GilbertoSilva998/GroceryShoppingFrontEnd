@@ -2,24 +2,25 @@ import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import {Link, useParams} from "react-router-dom";
 
-export default function ViewUser() {
+export default function ViewProduct() {
 
-    const [user, setUser]=useState({
-        name:"",
-        address:"",
-        email:"",
-        phone:""
+    const [product,setProduct] =useState({
+        productNumber:"",
+        productType:"",
+        productItem: "",
+        productDescription:""
+
     });
 
     const {id}=useParams();
 
     useEffect(() => {
-        loadUser();
+        loadProduct();
     }, []);
 
-    const loadUser=async ()=>{
-        const result=await axios.get(`http://localhost:8080/user/${id}`);
-        setUser(result.data);
+    const loadProduct=async ()=>{
+        const result=await axios.get(`http://localhost:8080/product/${id}`);
+        setProduct(result.data);
     };
 
 
@@ -27,32 +28,32 @@ export default function ViewUser() {
         <div className="container">
             <div className="row">
                 <div className="col md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    <h2 className="text-center m-4">User Details</h2>
+                    <h2 className="text-center m-4">Product Details</h2>
 
                     <div className="card">
                         <div className="card-header">
                             Details of user id : {user.id}
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item">
-                                    <b>Name:</b>
-                                    {user.name}
+                                    <b>Product Number:</b>
+                                    {product.productNumber}
                                 </li>
                                 <li className="list-group-item">
-                                    <b>Address:</b>
-                                    {user.address}
+                                    <b>Product Type:</b>
+                                    {product.productType}
                                 </li>
                                 <li className="list-group-item">
-                                    <b>Email:</b>
-                                    {user.email}
+                                    <b>Product Item:</b>
+                                    {product.productItem}
                                 </li>
                                 <li className="list-group-item">
-                                    <b>Phone:</b>
-                                    {user.phone}
+                                    <b>Product Description:</b>
+                                    {product.productDescription}
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <Link className="btn btn-primary my-2" to={"/"}>Back to Home</Link>
+                    <Link className="btn btn-primary my-2" to={"/products"}>Back to Products</Link>
 
                 </div>
             </div>
